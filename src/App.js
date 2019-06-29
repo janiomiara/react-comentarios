@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { comment } from 'postcss-selector-parser';
+import Comments from './Comments';
+import NewComment from './NewComment';
 
-function App() {
+
+class App extends React.Component {
+ state = {
+   comment: ['comment 1', 'comment 2', 'comment 3'],
+ }
+
+ sendComment = (newcomment) => {
+   this.setState({
+    comment: [...this.state.comment, newcomment],
+   })
+
+ }
+
+
+
+  render (){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NewComment 
+      sendComment={this.sendComment}
+      />
+      <Comments comment={this.state.comment}/>
     </div>
   );
 }
-
+}
 export default App;
