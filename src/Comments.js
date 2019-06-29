@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import Comment from './Comment'
+
+
 
 export default class Comments extends Component {
-    static propTypes = {
-        prop: PropTypes
-    }
 
     render() {
+        const keys = Object.keys(this.props.comment)
         return (
             <div>
-            {this.props.comment.map(c => {
-              return <div>{c}</div>
-            })}
+                {keys.map( key => <Comment key={key}c={this.props.comment[key]}/>)} 
            </div>
         )
     }
