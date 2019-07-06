@@ -1,6 +1,6 @@
 import React from 'react';
 // import { comment } from 'postcss-selector-parser';
-import Comments from './Comments';
+import {Comments} from './Comments';
 import NewComment from './NewComment';
 import { database } from './Firebase';
 
